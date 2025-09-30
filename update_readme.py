@@ -18,7 +18,7 @@ def update_readme(status: str):
         if line.strip() == "<!-- Historial de los tests -->":
             new_lines.pop()
             time = datetime.datetime.now()
-            new_lines.append(status + f" | {time.strftime('%d/%m/%Y')} - {time.strftime('%H:%M')}\n<!-- Historial de los tests -->\n")
+            new_lines.append(f"- {status}| {time.strftime('%d/%m/%Y')} - {time.strftime('%H:%M')}\n<!-- Historial de los tests -->\n")
 
 
         if line.strip() == "## Estado de los tests":
