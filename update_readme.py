@@ -1,4 +1,6 @@
-import subprocess
+import subprocess, datetime
+
+
 
 def run_tests():
     try:
@@ -14,6 +16,11 @@ def update_readme(status: str):
     new_lines = []
     for line in lines:
         new_lines.append(line)
+        if line.strip() == "<!-- Historial de los tests -->":
+            time = datetime.datetime.now()
+            new_lines.append(status + f" | {time.strftime('%A %d de %B de %Y')} - {time.strftime('%H:%M')}\n<!-- Historial de los tests -->\n")
+
+
         if line.strip() == "## Estado de los tests":
             new_lines.append(status + "\n")
             break

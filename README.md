@@ -336,5 +336,8 @@ Con estas extensiones conseguireis:
 
 Este proyecto sirve para aprender a usar GitHub Actions 🚀
 
+## Historial de los tests
+<!-- Historial de los tests -->
+
 ## Estado de los tests
 ❌ Tests fallidos
