@@ -342,4 +342,5 @@ Este proyecto sirve para aprender a usar GitHub Actions 🚀
 <!-- Historial de los tests -->
 
 ## Estado de los tests
-✅ Tests correctos
+[![Tests](https://github.com/danielmi5/2526_DAW_u1_action/actions/workflows/ci.yaml/badge.svg)](https://github.com/danielmi5/2526_DAW_u1_action/actions/workflows/ci.yaml)
+
