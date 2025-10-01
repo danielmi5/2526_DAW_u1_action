@@ -8,6 +8,8 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
+  
+
 permissions:
   contents: write   # 👈 IMPORTANTE: permite que el bot pueda hacer commits/push
 
@@ -18,6 +20,7 @@ jobs:
 
     env:
       TZ: Europe/Madrid
+      
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -38,3 +41,20 @@ jobs:
         with:
           commit_message: "Update README con estado de tests"
           file_pattern: README.md
+  
+  issue-on-fail:
+    needs: test-and-update
+    if: failure()  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issue automático al fallar los tests
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "❌ Tests fallidos",
+              body: "Se han detectado errores en los tests. Revisa el último commit."
+            })
+        
