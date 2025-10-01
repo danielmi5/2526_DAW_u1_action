@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write   # 👈 IMPORTANTE: permite que el bot pueda hacer commits/push
+  issues: write  # Lo mismo pero para que pueda hacer issues
 
 
 jobs:
